@@ -1,8 +1,7 @@
 import { useState } from "react";
 import useMultiStore from "./useMultiStore";
 
-
-function App() {
+function SubApp() {
   // Zustand 상태 및 액션 가져오기
   const { count, name, increase, setName } = useMultiStore();
   const [newName, setNewName] = useState("");
@@ -21,4 +20,4 @@ function App() {
   </>)
 }
 
-export default App
+export default SubApp

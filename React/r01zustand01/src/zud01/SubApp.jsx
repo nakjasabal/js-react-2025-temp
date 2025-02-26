@@ -1,6 +1,6 @@
 import useCounterStore from "./useCounterStore";
 
-function App() {
+function SubApp() {
   // Zustand 상태 및 액션 가져오기
   const { count, increment, decrement, reset } = useCounterStore();
 
@@ -14,4 +14,4 @@ function App() {
   </>)
 }
 
-export default App
+export default SubApp
