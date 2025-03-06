@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>for .. of 구문</h2>
+    <script>
+    const myArray = [10, '이십', 30];
+
+    console.error("배열의 length로 반복")
+    for (let i = 0; i < myArray.length; i++) {
+        console.log(myArray[i]);
+    }
+
+    console.error("for~of로 반복")
+    //Value(값)이 출력됨
+    for (const v of myArray) {
+        console.log(v);
+    }  
+
+    console.error("for~in으로 반복")
+    //Index(인덱스)가 출력됨
+    for (const i in myArray) {
+        console.log(i, myArray[i]);
+    }  
+    </script>
+</body>
+</html>
+

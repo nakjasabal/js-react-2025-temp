@@ -12,8 +12,8 @@ const CommonLayout = () => {
         Outlet 컴포넌트 알아보기
       </header>
       <article>
-          {/* 각 페이지의 컴포넌트가 보여지는 부분에 설정한다. */}
-          <Outlet />
+        {/* 각 페이지의 컴포넌트가 보여지는 부분에 설정한다. */}
+        <Outlet />
       </article>
       <footer style={{ background:'lightgray', padding:'10px' }}>
         공통 레이아웃 

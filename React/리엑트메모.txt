@@ -1,0 +1,24 @@
+목차
+
+##기본사용법 
+-리엑트기초
+-게시판1
+-라우터돔
+-수명주기
+-게시판2(라우터+수명주기+RestAPI)
+
+##리엑트훅
+-useId, useRef, useMemo, useCallback
+-useReducer, useContext 
+
+##상태관리 서드파티 라이브러리
+리덕스
+주스턴드
+
+##파이어베이스
+-firestore
+-realtime
+-storage
+-스코어보드 > firestore연동
+-채팅 > realtime연동
+

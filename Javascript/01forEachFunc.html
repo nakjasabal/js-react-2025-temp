@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    function forEachTest1(){        
+        console.error("forEachTest1() : 기본사용법");    
+        var myNumbers = [1,2,3,4,5];
+        myNumbers.forEach(function(currentValue, index, pArray){
+            console.log('현재값:'+currentValue, '인덱스:'+index, '배열:'+pArray);           
+        });
+    }; 
+ 
+    function forEachTest2(){
+        console.error("forEachTest2() : 배열 요소의 합계");    
+        var myNumbers = [1,2,3,4,5,6,7,8,9,10];
+        var result = 0;
+        function calculationSum(myNum){
+            result += myNum;
+        }
+        myNumbers.forEach(calculationSum);
+        console.log(result);
+    }
+
+    function forEachTest3(){
+        console.error("forEachTest3() : 두번째 인자 사용하기");
+        var myNumbers = [1,2,3,4,5,6,7,8,9,10];
+        var result = 0;
+        var myArgument = {min:3, max:7};
+        function calculationSum(myNum){
+            if(myNum>=this.min && myNum<=this.max){
+                result += myNum;
+            }
+        }
+        myNumbers.forEach(calculationSum, myArgument);
+        console.log(result);
+    }
+</script>    
+<body>
+    <h2>고차함수 - forEach()</h2>
+    <div>
+        <input type="button" onclick="forEachTest1();" value="forEach1">
+        <input type="button" onclick="forEachTest2();" value="forEach2">
+        <input type="button" onclick="forEachTest3();" value="forEach3">
+    </div>
+</body>
+</html>

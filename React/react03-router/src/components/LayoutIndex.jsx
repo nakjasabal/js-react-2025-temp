@@ -12,5 +12,4 @@ const LayoutIndex = () => {
   </>);
 }
 
-
 export default LayoutIndex;
