@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import FrontComp from './components/FrontComp'
-import BackComp from './components/BackComp'
+import FrontComp from './components/FrontComp06'
+import BackComp from './components/BackComp06'
 
 function App() {
   const frontData = ['HTML5', 'CSS3', 'Javascript', 'jQuery'];
   const backData = ['Java', 'Oracle', 'JSP', 'Spring Boot'];
-
   const [mode, setMode] = useState('both');
   let contents = '';
   if(mode==='front'){

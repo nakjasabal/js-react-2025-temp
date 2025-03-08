@@ -1,5 +1,5 @@
-import FrontComp from './components/FrontComp'
-import BackComp from './components/BackComp'
+import FrontComp from './components/FrontComp05'
+import BackComp from './components/BackComp05'
 
 function App() {
   const frontData = ['HTML5', 'CSS3', 'Javascript', 'jQuery'];
