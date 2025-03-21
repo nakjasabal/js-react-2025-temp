@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redux App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .input-section, .list-section {
+      margin-bottom: 20px;
+    }
+    .input-wrapper, .list-wrapper {
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    .list-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      border-bottom: 1px solid #ddd;
+    }
+    .list-item:last-child {
+      border-bottom: none;
+    }
+    .delete-button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .delete-button:hover {
+      background-color: darkred;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="input-section">
+      <h2>입력폼</h2>
+      <div class="input-wrapper">
+        <label for="item-input">한줄작성:</label>
+        <input type="text" id="item-input" />
+        <button id="add-button">추가</button>
+      </div>
+    </div>
+
+    <div class="list-section">
+      <h2>목록</h2>
+      <div class="list-wrapper">
+        <ul id="item-list">
+          <li class="list-item">
+            <span>Item 1</span>
+            <button class="delete-button">삭제</button>
+          </li>
+          <li class="list-item">
+            <span>Item 2</span>
+            <button class="delete-button">삭제</button>
+          </li>
+          <li class="list-item">
+            <span>Item 3</span>
+            <button class="delete-button">삭제</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
