@@ -14,9 +14,7 @@ const firebaseConfig = {
   databaseURL: import.meta.env.VITE_databaseURL
 };
 
-//App 초기화
 const app = initializeApp(firebaseConfig);
-//realtime 객체 생성 
 const realtime = getDatabase(app);
-//익스포트 
+
 export { realtime };
