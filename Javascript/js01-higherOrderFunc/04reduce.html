@@ -47,21 +47,36 @@
         1회반복 : 배열의 첫번째 원소가 previousVal에 사용었으므로 두번째 원소가 할당된다. 
         2회반복 이후 : 다음 원소가 순서대로 할당된다.
     */
-   (function reduceTest1(){		
-        console.error("reduceTest1() called..기본사용법");
-        var oldArray = [0,1,2,3,4];
-        oldArray.reduce(function(previousVal, currentVal, index, array) {
-            console.log(previousVal, currentVal, index); 
+    function reduceTest1(){		
+        console.error("기본사용법-초깃값X, 리턴X");
+        var myNumbers = [1,2,3,4,5];
+        myNumbers.reduce(function(previousValue, currentValue, index, useArray) {
+            console.log(previousValue, currentValue, index, useArray); 
         });		
-    })();
-    /*
-    함수 정의 및 즉시 호출
-    (function 함수명(){
-        실행부;
-    })();
-    이와같이 함수를 소괄호로 감싼 후 ()와 같이 하면 함수가 즉시 호출된다. 
-    */
+    }
 
+    function reduceTest2(){		
+        console.error("기본사용법-초깃값O, 리턴X");
+        var myNumbers = [1,2,3,4,5];
+        myNumbers.reduce(function(previousValue, currentValue, index, useArray) {
+            console.log(previousValue, currentValue, index, useArray); 
+        }, 0);		
+    }
+    
+    function reduceTest3(){		
+        console.error("기본사용법-초깃값O, 리턴O");
+        var myNumbers = [1,2,3,4,5];
+        myNumbers.reduce(function(previousValue, currentValue) {
+            console.log(previousValue, currentValue); 
+            return previousValue + 10;
+        }, 0);		
+    }
+
+
+
+
+
+ 
 
 
     /*
@@ -69,71 +84,49 @@
     배열의 첫번째 원소가 previousVal에 할당되므로 N-1회 반복된다. 
     첫번째 루프의 반환값이 두번째 루프의 previousVal에 할당된다. 
     */    
-    function reduceTest2(){
-        console.error("reduceTest2() called..return값 사용하기");
-		var oldArray = [0,1,2,3,4];
-		var sum = oldArray.reduce(function(previousVal, currentVal) {
-			console.log(previousVal, currentVal);
+    function reduceTest4(){
+        console.error("배열 요소의 합계");
+		var myNumbers = [1,2,3,4,5,6,7,8,9,10];
+		var result = myNumbers.reduce(function(prevVal, currVal) {
+			console.log(prevVal, currVal);
             /*
             previousVal : 0, 1, 3, 6 
             currentVal  : 1, 2, 3, 4
             마지막 반환값은 6+4이므로 10이 반환되어 sum에 저장된다.            
             */
-			return previousVal + currentVal;			
+			return prevVal + currVal;			
 		});
         //10이 출력된다.
-		console.log(sum);
+		console.log('결과', result);
 	}
+ 
 
-    /*
-    초기값도 있고, 반환값도 있는 경우의 호출
-    초기값이 있으므로 previousVal은 초기값은 2로 지정된다. 
-    따라서 배열의 크기 5만큼 반복되어 콜백함수를 호출한다. 
-    */
-    function reduceTest3(){		
-        console.error("reduceTest3() called..초기값 사용하기");
-		var oldArray = [0,1,2,3,4];
-		var sum = oldArray.reduce(function(previousVal, currentVal) {
-			console.log(previousVal, currentVal); 
-            /*
-            previousVal : 2, 2, 3, 5, 8
-            currentVal  : 0, 1, 2, 3, 4
-            마지막 반환값은 8+4이므로 12가 반환되어 sum에 저장된다.            
+    function reduceTest5(){
+        console.error("중복값 제거");
+		var myNumbers = [0,1,2,3,3,3,4,5,5,6,6]; 
+		var resultArr = myNumbers.reduce(function(prev, curr){							
+            /*  
+            초기값으로 지정된 배열에 현재원소가 포함되었는지 확인 후 없다면 삽입한다. 
+            따라서 중복된 값은 삽입되지 않는다. 
+            즉, previousVal은 배열이고, currentVal은 정수이다.
             */
-			return previousVal + currentVal;			
-		}, 2); 
-        //12가 출력된다.
-		console.log(sum); 
-	}
-
-    function reduceTest4(){
-        console.error("reduceTest4() called..배열에서 중복값을 제거하는 함수 구현");
-		var oldArray = [0,1,2,3,3,3,4,5,5,6,6]; 
-		var newArray = oldArray.reduce(
-			function(previousVal, currentVal){							
-                /*  
-                초기값으로 지정된 배열에 현재원소가 포함되었는지 확인 후 없다면 삽입한다. 
-                따라서 중복된 값은 삽입되지 않는다. 
-                즉, previousVal은 배열이고, currentVal은 정수이다.
-                */
-				if(previousVal.indexOf(currentVal)<0){
-					previousVal.push(currentVal);
-				}
-				return previousVal;			
-			}, []);
+            if(prev.indexOf(curr)==-1){
+                prev.push(curr);
+            }
+            return prev;			
+        }, []);
 		//중복이 제거된 배열이 반환되어 출력된다.
-		console.log(newArray);
+		console.log('결과', resultArr);
 	}
 </script>
 <body>
     <h2>고차함수 - reduce()</h2>
     <div>
-        <!-- 이미 <scirpt>태그내에서 사용되어 버렸으므로 별도로 호출할 수 없다. -->
         <input type="button" onclick="reduceTest1();" value="reduce1">        
-        <!-- 두번째 부터는 정상적으로 호출된다.  -->
         <input type="button" onclick="reduceTest2();" value="reduce2">
         <input type="button" onclick="reduceTest3();" value="reduce3">
         <input type="button" onclick="reduceTest4();" value="reduce4">
+        <input type="button" onclick="reduceTest5();" value="reduce5">
     </div>    
 </body>
 </html>

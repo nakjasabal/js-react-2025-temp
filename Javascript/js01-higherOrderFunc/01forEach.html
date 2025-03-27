@@ -8,15 +8,15 @@
 </head>
 <script>
     function forEachTest1(){        
-        console.error("forEachTest1() : 기본사용법");    
+        console.error("기본사용법");    
         var myNumbers = [1,2,3,4,5];
-        myNumbers.forEach(function(currentValue, index, pArray){
-            console.log('현재값:'+currentValue, '인덱스:'+index, '배열:'+pArray);           
+        myNumbers.forEach(function(currentValue, index, useArray){
+            console.log('현재값:'+currentValue, '인덱스:'+index, '배열:'+useArray);           
         });
     }; 
  
     function forEachTest2(){
-        console.error("forEachTest2() : 배열 요소의 합계");    
+        console.error("배열 요소의 합계");    
         var myNumbers = [1,2,3,4,5,6,7,8,9,10];
         var result = 0;
         function calculationSum(myNum){
@@ -27,7 +27,7 @@
     }
 
     function forEachTest3(){
-        console.error("forEachTest3() : 두번째 인자 사용하기");
+        console.error("두번째 매개변수 사용");
         var myNumbers = [1,2,3,4,5,6,7,8,9,10];
         var result = 0;
         var myArgument = {min:3, max:7};

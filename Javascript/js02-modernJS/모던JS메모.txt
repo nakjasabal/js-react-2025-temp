@@ -55,9 +55,9 @@ React의 데이터 페칭과 연관.
 값이 null 또는 undefined인 경우 기본값 제공.
 =========
 
-=========
 
-=========
+요기 문서와 비교해볼것..
+https://docs.google.com/document/d/1ld7QnaiYhgi1eUDEc4hxo-ZdQRJzrQv46y3WF3SlyrY/edit?tab=t.0
 
 
 
