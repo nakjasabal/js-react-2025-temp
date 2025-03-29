@@ -6,72 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-<!--  
-    filter()함수
-        - filter라는 명칭과 같이 콜백함수의 조건에 해당하는 원소만 반환하여 새로운 배열을 만들때 사용한다. 
-        - map()과 형식이 완전히 동일하지만, 반환값에 대한 부분만 차이가 있다.
-    
-        형식]
-            var oldArray = [1,2,3,.....N]
-            var newArray = oldArray.filter(
-                callBackFunction(현재값, 현재값의인덱스, 호출한배열){
-                    실행부;
-                    return 반환값;
-                }, 
-                thisArgs
-            );
--->
-<script>
-    function filterTest1() {
-        console.error("조건에 맞는 요소만 추출");
-        var myNumbers = [1,2,3,4,5];
-        var resultArr = myNumbers.filter(function(currentValue) {
-            console.log(currentValue);
-            /*
-            map()과 동일하게 원소의 갯수만큼 콜백함수를 반복호출한다. 
-            단, 원소 중 3 이하인 값들만 추출하여 새로운 배열에 저장한다. 
-            */
-            return currentValue<=3;
-        });
-        console.log('결과', resultArr);        
-    }
 
-    function filterTest2(){
-        console.error("JSON객체 배열 사용 및 검색");
-        var myJSONArr = [
+<script>
+    function filter01(){
+        console.error("기본사용법");    
+        var myNumbers = [1,2,3,4,5];
+        var resultArr = myNumbers.filter(function(currentValue, index, useArray){
+            console.log(currentValue, index, useArray);
+            return currentValue <= 3;
+        });
+        console.log('결과', resultArr);
+    }
+ 
+    function filter02(){
+        console.error("새로운 객체 배열 만들기");
+        var objArr = [
             {name : "유비", salary : 1000},
             {name : "관우", salary : 2000},
             {name : "장비", salary : 3000},
             {name : "손오공", salary : 4000},
             {name : "저팔계", salary : 5000},
             {name : "사오정", salary : 6000}
-        ];
-     
-        var resultJSONArr = myJSONArr.filter(function(item) {
+        ];     
+        var resultArr = objArr.filter(function(item) {
             return item.salary>=3000;  
-        }, undefined);
-        console.log(resultJSONArr);		
+        });
+        console.log('결과', resultArr);		
     }
-
-	function filterTest3(){	
-        console.error("두번째 매개변수 사용하기");
-        var myNumbers = [1, 2, 3, 4, 5, 10, 20, 30, 40, 50];
-        //this 매개변수로 사용할 JSON객체
-        var myArgument = {min:3, max:20};
-        //콜백함수. 1이상 10이하인 요소만 추출한다. 
-        function getMinMax(value){
-            return value>=this.min && value<=this.max;
-        }		
-        var resultArr = myNumbers.filter(getMinMax, myArgument);
-        console.log('결과', resultArr);
-	}
 </script>
 <body>
     <h2>고차함수 - filter()</h2>
     <div>
-        <input type="button" onclick="filterTest1();" value="filter1">
-        <input type="button" onclick="filterTest2();" value="filter2">
-        <input type="button" onclick="filterTest3();" value="filter3">
+        <input type="button" onclick="filter01();" value="filter1">
+        <input type="button" onclick="filter02();" value="filter2">
     </div>    
 </body>
 </html>
