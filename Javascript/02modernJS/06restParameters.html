@@ -1,0 +1,93 @@
+나머지 매개변수(Rest Parameters)
+동적인 인자 처리 방법
+...args를 활용한 함수 예제
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>스프레드 연산자(Spread operator)</h2>
+    <script>
+    /*
+    함수에서의 Spread operator
+    Rest parameter : 함수를 호출할때 함수의 매개변수를 스프레드 연산자로 
+        작성한 형태로 전달되는 모든 인수를 한꺼번에 받아 "배열"로 저장한다.
+    */
+    function add(...rest) {
+        let sum = 0;
+        //전달된 인수의 갯수만큼 반복하여 누적합을 계산한다. 
+        for (let item of rest) {
+            sum += item;
+        }
+        return sum;
+    }
+    console.log('결과1-1', add(1)); // 1
+    console.log('결과1-2', add(1, 2)); // 3
+    console.log('결과1-3', add(1, 2, 3)); // 6
+
+    /* 일반 매개변수와 혼용해서 사용할 수 있다. 단, Rest파라미터는 항상
+    제일 마지막에 위치해야한다. 아래 2개의 매개변수의 위치를 변경하면 즉시
+    에러가 발생한다. */
+    let addMul = (method, ...rest) => { 
+        if (method==='add'){
+            let sum = 0;
+            for (let item of rest) {
+                sum += item;
+            }    
+            return sum;    
+        } 
+        else if (method==='multiply'){
+            let mul = 1;
+            for (let item of rest) {
+                mul *= item;
+            }
+            return mul;    
+        }
+    } 
+    //뒷부분의 숫자는 Rest파라미터로 전달되어 배열에 저장된다. 
+    console.log('결과2-1', addMul('add', 1,2,3,4) ); // 10
+    console.log('결과2-2', addMul('multiply', 1,2,3,4) ); // 24
+    </script>
+</body>
+</html>
+
+
+<body>
+    <h2>기본 매개 변수(Default parameter)</h2>
+    <script>
+    /* a를 제외한 b, c는 값을 할당받지 못해 undefined 이 출력된다. */
+    var func1 = function(a, b, c) {
+        console.log(a, b, c);
+    }; 
+    
+    /* 기본값을 설정하기 위해 파라미터가 undefined 인지 일일이
+    체크한 후 값을 할당하고 있다. 이 경우 b, c가 값이 없다면 
+    아래와 같은 값이 할당된다. */
+    function func2(a, b, c){
+        if(b==undefined) b = 'morning';
+        if(c==undefined) c = 'sir';
+        
+        console.log(a, b, c);
+    }
+
+    /*
+    디폴트 파라미터(Default parameter) : ES6에서는 파라미터에 기본값
+        을 설정할 수 있다. 만약 b와 c에 인수를 전달하지 않는다면
+        디폴트로 설정된 값이 할당되어 출력된다. 
+        만약 인수가 주어진다면 default값은 무시된다. 
+    */
+    var func3 = (a, b=2, c=3) => {
+        console.log(a, b, c);
+    }; 
+
+    func1('1');
+    func2('good');
+    func3(1);
+    func3('나는', 'java', '개발자');
+    </script>    
+</body>

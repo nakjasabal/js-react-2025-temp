@@ -1,0 +1,35 @@
+Array.from() → ES6 (2015년)
+
+유사 배열 객체 또는 iterable 객체를 배열로 변환
+
+**ES6 (ECMAScript 2015)**에서 새롭게 추가됨.
+
+기존 Array.prototype.slice.call(arguments) 같은 코드 대신 더 직관적으로 배열 변환이 가능해짐.
+
+
+
+
+
+
+/*
+Array.from()
+    : 기존의 배열을 새로운 배열로 복사하거나, 함수에서 사용하는
+    경우 인수를 통해 생성된 유사배열을 실제 배열로 변경해주는
+    역할을 한다. 
+*/
+console.error("Array.from() 사용하기");
+function fromFunction(){
+    /*
+    arguments : 함수 호출시 전달되는 인수들이 하나로 묶여 
+        생성되는 유사배열객체. 배열과 비슷하지만 배열은 아니므로
+        배열함수를 사용하면 에러가 발생한다. 
+    */
+    console.log('arguments', arguments);
+    //유사배열을 실제 사용가능한 배열로 변경한다. 
+    var newArr1 = Array.from(arguments);
+    console.log('newArr1', newArr1);
+}
+fromFunction(98, 99, 100);
+
+let newArr2 = Array.from(arr);
+console.log('newArr2', newArr2);
