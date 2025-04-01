@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h2>템플릿 리터럴(Template literal)</h2>
+	<script>
+	const func1 = function(){
+		console.log("es5의 방식\n줄바꿈엔 \\n 사용");
+		console.log(`템플릿 리터럴
+줄바꿈과 white space 그대로    적용`);
+	}
+
+	/*
+	표현식 삽입법(Expression interpolation)
+	: 템플릿 리터럴은 +연산자를 사용하지 않아도 간단한 방법으로 
+	변수를 삽입할 수 있는 기능을 제공한다. JSP의 EL과 같이 $를 
+	사용하면 된다. 
+	*/
+	const func2 = function(){
+		let a = 5;
+		let b = 10;
+		//es5의 방식
+		console.log("5와 10의 합은 "+ (a + b) +" 입니다.");
+		//es6의 방식
+		console.log(`5와 10의 합은 ${a + b} 입니다.`);
+	}
+
+	const func3 = function(){
+		const template = `템플릿 리터럴은 '작은따옴표(single quotes)'과 "큰따옴표(double quotes)"를 혼용할 수 있다.`;
+		console.log(template);
+	}
+	</script>
+	<div>
+		<button type="button" onclick="func1();">버튼1</button>
+		<button type="button" onclick="func2();">버튼2</button>
+		<button type="button" onclick="func3();">버튼3</button>
+	</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+</head>
+<body>
+	<h2>let 과 const</h2>	
+	<script>
+		const constNum = 100;
+		const sumLimit = function (start, end) {            
+			let sum = 0;
+			for(let i=start ; i<=end ; i++){
+				sum += i;
+			}
+			return sum;
+		}
+		const func1 = function(){
+			//console.log("result 선언전="+ result); //호이스팅 안되므로 에러
+			let result = sumLimit(1, 10);
+			console.log("result 선언후="+ result);
+			console.log("상수 constNum="+ constNum);			
+			//constNum = 200; //상수는 변경불가
+		}
+		const func2 = function(){
+			let j = 100;
+			for(let j=1 ; j<=10 ; j++){
+				console.log('for문안의 j='+ j); 
+			}
+			console.log('for문밖의 j='+ j);
+			//let j = 200; //재정의 에러
+		}
+	</script>
+	<div>
+		<button type="button" onclick="func1();">버튼1</button>
+		<button type="button" onclick="func2();">버튼2</button>
+	</div>
+</body>
+</html>
