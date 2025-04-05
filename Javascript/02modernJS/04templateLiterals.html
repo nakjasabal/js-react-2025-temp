@@ -8,7 +8,7 @@
 <body>
 	<h2>템플릿 리터럴(Template literal)</h2>
 	<script>
-	const func1 = function(){
+	const func1 = () => {
 		console.log("es5의 방식\n줄바꿈엔 \\n 사용");
 		console.log(`템플릿 리터럴
 줄바꿈과 white space 그대로    적용`);
@@ -20,7 +20,7 @@
 	변수를 삽입할 수 있는 기능을 제공한다. JSP의 EL과 같이 $를 
 	사용하면 된다. 
 	*/
-	const func2 = function(){
+	const func2 = () => {
 		let a = 5;
 		let b = 10;
 		//es5의 방식
@@ -29,7 +29,7 @@
 		console.log(`5와 10의 합은 ${a + b} 입니다.`);
 	}
 
-	const func3 = function(){
+	const func3 = () => {
 		const template = `템플릿 리터럴은 '작은따옴표(single quotes)'과 "큰따옴표(double quotes)"를 혼용할 수 있다.`;
 		console.log(template);
 	}

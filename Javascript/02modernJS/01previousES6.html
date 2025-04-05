@@ -13,36 +13,36 @@
 			globalVar = 2; //전역변수로 선언됨 
 			var localVar = 1; //지역변수로 선언됨
 		}
-		function fn1(){
+		function func1(){
 			myFunc();
 			console.log(globalVar); //출력됨
 			console.log(localVar); //에러발생
 		}
-		function fn2(){
+		function func2(){
 			for(var i=0 ; i<=10 ; i++){
 				console.log("for루프안 i="+ i);  
 			}
 			//for문을 벗어나도 소멸되지 않으므로 11이 출력된다.
 			console.log("for루프밖 i="+ i); 
 		}
-		function fn3(){
+		function func3(){
 			//변수 x가 아래에서 선언되면 undefined이 출력된다.
 			console.log('x 선언전='+ x); 
 			//만약 이 부분이 주석처리되면 윗줄에서 에러가 발생한다. 
 			var x = 10;
 			console.log('x 선언후='+ x);
 		}
-		function fn4(){
+		function func4(){
 			var y = 1; 
 			var y = 2; 
 			console.log('y 재정의='+ y);  
 		}
 	</script>
 	<div>
-		<button type="button" onclick="fn1();">버튼1</button>
-		<button type="button" onclick="fn2();">버튼2</button>
-		<button type="button" onclick="fn3();">버튼3</button>
-		<button type="button" onclick="fn4();">버튼4</button>
+		<button type="button" onclick="func1();">버튼1</button>
+		<button type="button" onclick="func2();">버튼2</button>
+		<button type="button" onclick="func3();">버튼3</button>
+		<button type="button" onclick="func4();">버튼4</button>
 	</div>
 </body>
 </html>

@@ -1,19 +1,3 @@
-for...of 루프의 도입 시기
-for...of는 ES6 (ECMAScript 2015)에서 도입됨.
-
-for...in과 달리 이터러블(iterable) 객체를 순회할 수 있도록 추가된 문법임.
-
-
-
-const numbers = [10, 20, 30];
-
-for (const num of numbers) {
-  console.log(num); 
-}
-// 출력: 10, 20, 30
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,27 +6,33 @@ for (const num of numbers) {
     <title>Document</title>
 </head>
 <body>
-    <h2>for .. of 구문</h2>
-    <script>
-    const myArray = [10, '이십', 30];
+    <!-- for...of 루프의 도입 시기
+        for...of는 ES6 (ECMAScript 2015)에서 도입됨.
 
-    console.error("배열의 length로 반복")
-    for (let i = 0; i < myArray.length; i++) {
-        console.log(myArray[i]);
-    }
+        for...in과 달리 이터러블(iterable) 객체를 순회할 수 있도록 추가된 문법임.
 
-    console.error("for~of로 반복")
-    //Value(값)이 출력됨
-    for (const v of myArray) {
-        console.log(v);
-    }  
-
-    console.error("for~in으로 반복")
-    //Index(인덱스)가 출력됨
-    for (const i in myArray) {
-        console.log(i, myArray[i]);
-    }  
-    </script>
+     -->
+	<h2>for .. of</h2>
+	<script>
+		const myArray = [10, '이십', 30];
+		(() => {
+			console.error("배열의 length로 반복")
+			for (let i = 0; i < myArray.length; i++) {
+				console.log(myArray[i]);
+			}
+			
+			console.error("for~in으로 반복")
+			//Index(인덱스)가 반환되므로 재접근 필요함
+			for (const i in myArray) {
+				console.log(i, myArray[i]);
+			}  
+	
+			console.error("for~of로 반복")
+			//Value(값)이 즉시 반환됨
+			for (const v of myArray) {
+				console.log(v);
+			}  
+		})();
+	</script>
 </body>
 </html>
-

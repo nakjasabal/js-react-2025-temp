@@ -1,0 +1,53 @@
+ 
+js
+복사
+편집
+const set = new Set([1, 2, 3, 3, 4, 4]);
+console.log(set); // Set { 1, 2, 3, 4 }
+
+set.add(5);
+set.delete(2);
+console.log(set.has(3)); // true
+console.log(set.size); // 4
+
+ 
+📌 Set 예제 (중복 없는 값)
+js
+복사
+편집
+// Set을 사용하여 중복 없는 값 저장하기
+const numberSet = new Set([1, 2, 3, 4, 4, 5, 5]);
+
+// Set의 크기
+console.log(numberSet.size); // 5 (중복 값은 제외됨)
+
+// Set에 값 추가
+numberSet.add(6);
+console.log(numberSet); // Set { 1, 2, 3, 4, 5, 6 }
+
+// Set에서 값 삭제
+numberSet.delete(3);
+console.log(numberSet); // Set { 1, 2, 4, 5, 6 }
+
+// Set에서 값 존재 확인
+console.log(numberSet.has(2)); // true
+console.log(numberSet.has(3)); // false
+
+// Set 순회하기
+numberSet.forEach(function(value) {
+    console.log(value);
+});
+ 
+
+
+Set 예제:
+
+Set은 중복을 허용하지 않는 값을 저장합니다.
+
+add() 메서드로 값을 추가하고, 중복된 값은 자동으로 제거됩니다.
+
+has()를 통해 값의 존재 여부를 확인하고, delete()로 값을 삭제할 수 있습니다.
+
+forEach() 메서드를 사용하여 Set의 값을 순회할 수 있습니다.
+
+ 
