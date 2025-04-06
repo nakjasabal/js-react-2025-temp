@@ -9,7 +9,7 @@ function App() {
   let contents = '';
   if(mode==='front'){
     contents = <>
-      <FrontComp propData1={frontData} 
+      <FrontComp propData1={frontData} frTitle="프론트앤드"
         onMyEvent1={(mode)=>{
           setMode(mode);
         }}
@@ -18,7 +18,7 @@ function App() {
   }
   else if(mode==='back'){
     contents = <>
-      <BackComp propData2={backData} 
+      <BackComp propData2={backData} baTitle="백앤드"
         onMyEvent2={(mode)=>{
           setMode(mode);
         }}
@@ -27,12 +27,12 @@ function App() {
   }
   else{
     contents = <>
-      <FrontComp propData1={frontData} 
+      <FrontComp propData1={frontData} frTitle="프론트앤드"
         onMyEvent1={(mode)=>{
           setMode(mode);
         }}
       ></FrontComp>
-      <BackComp propData2={backData} 
+      <BackComp propData2={backData} baTitle="백앤드"
         onMyEvent2={(mode)=>{
           setMode(mode);
         }}

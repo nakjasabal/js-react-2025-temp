@@ -1,12 +1,10 @@
 function FrontComp(props) {
   const liRows = [];
-
   for(let i=0 ; i<props.propData1.length ; i++){    
     liRows.push(
       <li key={i}>{props.propData1[i]}</li>
     );
   }
-
   return (<>
     <li>{props.frTitle}</li>
     <ul>
@@ -17,14 +15,12 @@ function FrontComp(props) {
 
 const BackComp = ({propData2, baTitle}) => {
   const liRows = [];
-
   let keyCnt=0;
   for(let row of propData2){
     liRows.push(
       <li key={keyCnt++}>{row}</li>
     );
   }
-
   return (<>
     <li>{baTitle}</li>
     <ul>
@@ -36,7 +32,6 @@ const BackComp = ({propData2, baTitle}) => {
 function App() {
   const frontData = ['HTML5', 'CSS3', 'Javascript', 'jQuery', 'React추가'];
   const backData = ['Java', 'Oracle', 'JSP', 'Spring Boot', 'Nextjs추가'];
-
   return (<>
     <div>
       <h2>React-Props</h2>
