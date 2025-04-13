@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>every()</title>
 </head>
 <script>
   function every01(){		
@@ -12,8 +12,7 @@
     var result = myNumbers.every(function(num) {
       return num % 2 === 0;
     });
-    //모든 배열 요소가 짝수가 아니므로 false
-    console.log("결과", result ? '짝수만있음' : '짝수없음');
+    console.log("결과", result ? '짝수만있음' : '홀수포함됨');
   }
   
   function every02(){		
@@ -52,7 +51,7 @@
 <body>
   <h2>고차함수 - every()</h2>
   <div>
-      <input type="button" onclick="every01()" value="every01">
-      <input type="button" onclick="every02()" value="every02">
+    <input type="button" onclick="every01()" value="every01">
+    <input type="button" onclick="every02()" value="every02">
   </div>
 </html>
