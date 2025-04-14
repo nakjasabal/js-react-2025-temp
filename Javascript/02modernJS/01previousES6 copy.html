@@ -10,22 +10,25 @@
 	<h2>ES6 이전의 문제점</h2>
 	<script>
 		function myFunc(){
-			globalVar = 2;
-			var localVar = 1;
+			globalVar = 2; //전역변수로 선언됨 
+			var localVar = 1; //지역변수로 선언됨
 		}
 		function func1(){
 			myFunc();
-			console.log(globalVar);
-			console.log(localVar);
+			console.log(globalVar); //출력됨
+			console.log(localVar); //에러발생
 		}
 		function func2(){
 			for(var i=0 ; i<=10 ; i++){
 				console.log("for루프안 i="+ i);  
-			}			
+			}
+			//for문을 벗어나도 소멸되지 않으므로 11이 출력된다.
 			console.log("for루프밖 i="+ i); 
 		}
-		function func3(){			
-			console.log('x 선언전='+ x); 			
+		function func3(){
+			//변수 x가 아래에서 선언되면 undefined이 출력된다.
+			console.log('x 선언전='+ x); 
+			//만약 이 부분이 주석처리되면 윗줄에서 에러가 발생한다. 
 			var x = 10;
 			console.log('x 선언후='+ x);
 		}
@@ -43,3 +46,4 @@
 	</div>
 </body>
 </html>
+ 
