@@ -10,6 +10,7 @@
     console.error("every() : 모든 요소가 조건에 만족");
     var myNumbers = [1, 2, 3, 4, 5];    
     var result = myNumbers.every(function(num) {
+      console.log('현재값', num);
       return num % 2 === 0;
     });
     console.log("결과", result ? '짝수만있음' : '홀수포함됨');
@@ -24,7 +25,7 @@
       { idx: 4, name: "김유겸", score: 61 }
     ];
     const isValid = students.every(function(student) {
-      return student.score >= 0;
+      return student.score > 0;
     });
     if (isValid) {
       const result = students.map(function(student) {

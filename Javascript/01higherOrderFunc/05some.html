@@ -10,6 +10,7 @@
     console.error("some() : 일부 요소라도 조건에 만족");
     var myNumbers = [1, 2, 3, 4, 5];    
     var result = myNumbers.some(function(num) {
+      console.log('현재값', num);
       return num % 2 === 0;
     });
     console.log("결과", result ? '짝수포함됨' : '짝수없음');
