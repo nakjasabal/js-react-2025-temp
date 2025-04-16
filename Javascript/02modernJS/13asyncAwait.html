@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Async/Await</title>
 </head>
 <body>
   <h2>Async / Await</h2>  
@@ -21,7 +21,7 @@
       return new Promise((resolve) => {
         setTimeout(() => {
           console.log(`${userid}의 사용자 정보 조회 완료`);
-          resolve({ id, name: '성유겸' });
+          resolve({ userid, name: '성유겸' });
         }, 1000);
       });
     }
@@ -29,7 +29,7 @@
     function welcomeHome(responseInfo) {
       return new Promise((resolve) => {
         setTimeout(() => {
-          console.log(`아이디:${responseInfo.id}`);
+          console.log(`아이디:${responseInfo.userid}`);
           console.log(`${responseInfo.name}님, 환영합니다!`);
           resolve();
         }, 1000);
