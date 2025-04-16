@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Set</title>
+	<title>Document</title>
 </head>
 <body>
 	<h2>Set</h2>
@@ -35,9 +35,11 @@
 		(() => {
 			console.error('개별 요소 접근');
 			const dragonBall = new Set(['손오공', '베지터', '프리저']);
+			//첫번째 요소 인출 : values()가 iterator를 반환하여 접근 가능
 			const data1 = dragonBall.values().next().value;
 			console.log('요소1', data1);
 
+			//Set을 배열로 변환 후 인덱스로 접근 
 			const dragonArr = Array.from(dragonBall);
 			console.log('요소2,3', dragonArr[1], dragonArr[2]);
 		})();
