@@ -1,7 +1,13 @@
 function ArticleWrite(props){
   return (
     <article>
-      <form>
+      <form onSubmit={(event)=>{
+				event.preventDefault();
+				let title = event.target.title.value;
+				let writer = event.target.writer.value;
+				let contents = event.target.contents.value;
+				props.writeAction(title, writer, contents);
+			}}>
         <table id="boardTable">
           <tbody>
             <tr>

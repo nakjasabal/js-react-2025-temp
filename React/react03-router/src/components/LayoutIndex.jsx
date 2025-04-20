@@ -1,7 +1,3 @@
-/**
-/intro 경로가 요청될때 Outlet 컴포넌트 위치에 렌더링된다. 
-이 부분은 <App>컴포넌트에 설정되어있다. 
- */
 const LayoutIndex = () => {
   return (<>
     <h2>레이아웃 인덱스 페이지</h2>
@@ -13,3 +9,4 @@ const LayoutIndex = () => {
 }
 
 export default LayoutIndex;
+ 
