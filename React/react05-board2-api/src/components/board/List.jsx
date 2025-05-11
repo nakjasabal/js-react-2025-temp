@@ -2,19 +2,18 @@ import { Link } from 'react-router-dom';
 import {useState, useEffect} from 'react';
  
 function List() {
-  /**API 서버와의 통신을 통해 전달받은 JSON데이터를 저장하기 위한
-  State생성. 초기값은 빈 배열로 설정. */
-  let [boardData, setBoardData] = useState([]);  
-  
-  //화면 렌더링 후 API 서버에 요청 
+  const [boardData, setBoardData] = useState([]);    
+  let requestUrl = "http://nakja.co.kr/APIs/php7/boardListJSON.php";
+  let parameter = "tname=board_apis";
+  parameter += "&apikey=42db3e68e07b870208f59f87242a0752";
+
   useEffect(function(){
-    fetch("http://nakja.co.kr/APIs/php7/boardListJSON.php?tname=nboard_news")
+    fetch(requestUrl +"?"+ parameter)
       .then((result)=>{
         return result.json();
       })
       .then((json)=>{
         console.log(json);
-        //콜백 데이터로 State변경 
         setBoardData(json);
       });
   }, []);
@@ -43,14 +42,10 @@ function List() {
       <table id="boardTable">
         <thead>
           <tr>
-            <th>No</th>
-            <th>제목</th>
-            <th>작성자</th>
-            <th>날짜</th>
+            <th>No</th><th>제목</th><th>작성자</th><th>날짜</th>
           </tr>
         </thead>
         <tbody>
-          {/* 파싱한 내용은 tbody 사이에 삽입  */}
           {lists}
         </tbody>
       </table>

@@ -2,10 +2,10 @@ import {useState, useEffect} from 'react';
 
 const GlobalTop = (props) => {
   console.log('1.컴포넌트실행');
-  var [myList, setMyList] = useState([]); 
+  const [myList, setMyList] = useState([]); 
 
   useEffect(() => {    
-    console.log('3.useEffect실행1');
+    console.log('3.useEffect실행');
     fetch('./json/myData.json')
       .then((result)=>{
         return result.json();
@@ -14,12 +14,9 @@ const GlobalTop = (props) => {
         console.log(json);      
         setMyList(json);
       });
-    return ()=>{
-      console.log('4.useEffect실행2');
-    }
   }, []);
 
-  var listTag = myList.map((data) => {
+  let listTag = myList.map((data) => {
     return (
       <li key={data.id}>
         <a href={data.id} data-id={data.num} onClick={(e)=>{
@@ -55,25 +52,21 @@ const ContentBody = (props)=>{
 }
 
 function LocalJsonFetcher() {  
-  var [myResult, setMyResult] = useState({});  
-  return (
-    <div className="App">
-      <h2>React - 내부서버통신</h2>
-      <GlobalTop myLinkClick={(num)=>{
-        console.log('클릭', num);
-        fetch('./json/dto'+num+'.json')
-          .then((result)=>{
-            console.log('결과1', result);
-            return result.json();
-          })
-          .then((json)=>{
-            console.log('결과2', json);
-            setMyResult(json);
-          });
-      }}></GlobalTop>
-      <ContentBody myResult={myResult}></ContentBody>
-    </div>
-  );
+  const [myResult, setMyResult] = useState({});  
+  return (<>
+    <h2>내부 서버 통신</h2>
+    <GlobalTop myLinkClick={(num)=>{
+      console.log('클릭', num);
+      fetch('./json/dto'+num+'.json')
+        .then((result)=>{
+          return result.json();
+        })
+        .then((json)=>{
+          setMyResult(json);
+        });
+    }}></GlobalTop>
+    <ContentBody myResult={myResult}></ContentBody>
+  </>);
 }
 
 export default LocalJsonFetcher;

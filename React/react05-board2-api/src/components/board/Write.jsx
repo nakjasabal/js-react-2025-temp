@@ -15,40 +15,22 @@ function Write() {
     <form onSubmit={
       (event)=>{
         event.preventDefault();
-        //폼값 얻기 
-        let w = event.target.writer.value;
-        let t = event.target.title.value;
-        let c = event.target.contents.value;
-        console.log(w, t, c);
-
-        /** 
-        글작성을 위해 Post 전송방식을 사용한다. 
-        fetch 함수의 첫번째 인수는 '요청URL', 두번째 인수는 전송방식
-        및 헤더, 폼값을 추가한다. 
-         */
-        fetch('http://nakja.co.kr/APIs/php7/boardWriteJSON.php', 
-        {
+        fetch('http://nakja.co.kr/APIs/php7/boardWriteJSON.php', {
           method: 'POST',
           headers: {
             'Content-type':'application/x-www-form-urlencoded;charset=UTF-8',
           },
-          /** 
-          작성자가 입력한 폼값을 JSON형식으로 조립하여 전송한다. 
-          URLSearchParams 객체는 JSON형식의 데이터를 쿼리스트링 
-          형식으로 변환해주는 역할을 한다. 
-          */
           body: new URLSearchParams({
-            tname: 'nboard_news', //react전용으로 변경하는것이 좋을듯..
-            id: 'jsonAPI',
-            name: w,
-            subject: t,
-            content: c,
+            tname: 'board_apis',           
+            name: event.target.writer.value,
+            subject: event.target.title.value,
+            content: event.target.contents.value,
+            apikey: "42db3e68e07b870208f59f87242a0752",
           }),
         })
         .then((response) => response.json())
         .then((json) => console.log(json));
         
-        //글쓰기가 완료되면 목록으로 이동한다. 
         navigate("/list");
 		  }
     }>
@@ -68,7 +50,7 @@ function Write() {
           </tr>
         </tbody>
       </table>
-      <input type="submit" value="전송" />
+      <input type="submit" value="작성" />
     </form>    
     </article>
   </>);

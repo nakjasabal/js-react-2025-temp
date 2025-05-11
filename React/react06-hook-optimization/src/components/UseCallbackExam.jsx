@@ -1,17 +1,13 @@
 import { useState, useEffect, useCallback } from 'react';
 
 const DivBox = ({ fnBoxStyle, numberVar }) => {
-  //State : 초기값으로 빈 객체를 설정 
   const [myStyle, setMyStyle] = useState({});
-  
-  //Props를 통해 전달받은 createBoxStyle이 변경될때마다 호출되도록 정의 
   useEffect(() => {
     console.log('박스 스타일 변경');
     setMyStyle(fnBoxStyle());
   }, 
   [fnBoxStyle]);
   
-  //<div> 박스를 렌더링한다. 
   return <div style={myStyle}>{numberVar}</div>
 }
 
@@ -19,7 +15,6 @@ const UseCallbackExam = () => {
   const [boxSize, setboxSize] = useState(100);
   const [boxColor, setboxColor] = useState(0);
   const [number, setNumber] = useState(0);
-
   const colorArr = ['red', 'green', 'blue'];
   
   //step1

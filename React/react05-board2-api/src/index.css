@@ -2,7 +2,7 @@
 input,textarea { width:95%; }
 input[type=submit] { width:100px; }
 #boardTable{
-    border: 1px solid gray; border-collapse: collapse; width: 500px; 
+    border: 1px solid gray; border-collapse: collapse; width: 600px; 
 }
 #boardTable tr{
     text-align: center;

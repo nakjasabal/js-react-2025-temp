@@ -25,14 +25,15 @@ function MoveBox(props){
     return ()=>{
       console.log('useEffect실행==>4.컴포넌트 언마운트');
     }
-  //}); //1.의존성배열(두번째인자) 없음. 
-  //}, []); //2.의존성배열에 빈 배열을 할당.
-  }, [leftCount]); //3.의존성 배열에 State변수 할당.
+  // }); //1.의존성 배열 생략
+  // }, []); //2.의존성 배열에 빈 배열 지정
+  }, [leftCount]); //3.의존성 배열에 State변수 할당
+
   
   console.log('return실행==>2.렌더링(return문))');
   return (
     <div>
-      <h4>함수형 컴포넌트의 수명주기 함수</h4>      
+      <h4>함수형 컴포넌트의 수명주기</h4>      
       <div style={boxStyle}>{leftCount}</div>    
       <input type='button' value="좌측이동" onClick={moveLeft} />
       <input type='button' value="우측이동" onClick={moveRight} />

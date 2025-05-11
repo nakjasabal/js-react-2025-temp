@@ -55,3 +55,25 @@ const UseFormStatusExam = () => {
 }
 
 export default UseFormStatusExam;
+
+/**
+pending: 폼이 제출 중이면 true가 됩니다.
+data: 현재 제출 중인 폼의 데이터를 담은 FormData 객체입니다.
+method: 폼 제출 방식('get' 또는 'post')을 나타냅니다.
+action: 폼의 action prop에 전달된 함수(또는 URI)입니다.
+
+이와 같은 반환값이 있다는데 테스트 해봐야 할듯..
+
+function UsernameForm() {
+  const { pending, data } = useFormStatus();
+  return (
+    <div>
+      <input type="text" name="username" disabled={pending} />
+      <button type="submit" disabled={pending}>Submit</button>
+      <p>{data ? `Requesting ${data.get("username")}...` : ""}</p>
+    </div>
+  );
+}
+
+
+ */

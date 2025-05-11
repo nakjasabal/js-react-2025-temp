@@ -1,7 +1,7 @@
 import {useState, useEffect} from 'react';
 
 function RandomUser(props){
-  var [myJSON, setMyJSON] = useState({results:[]});  
+  const [myJSON, setMyJSON] = useState({results:[]});  
   
   useEffect(function(){
     fetch("https://api.randomuser.me?results=10")
@@ -12,7 +12,6 @@ function RandomUser(props){
         console.log(json);
         setMyJSON(json);
       });
-    return ()=>{}
   }, []);
 
   let trTag = myJSON.results.map((data) => {
@@ -48,7 +47,7 @@ function RandomUser(props){
 
 function ExternalApiFetcher() {
   return (<>
-    <h2>React - 외부서버통신</h2>
+    <h2>외부 서버 통신</h2>
     <RandomUser onProfile={(sData)=>{
       console.log(sData);
       let info = `전화번호:${sData.cell}

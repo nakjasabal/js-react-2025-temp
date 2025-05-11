@@ -2,24 +2,14 @@
   "results": [
     {
       "gender": "male",
-      "name": {
-        "title": "Mr",
-        "first": "Jesse",
-        "last": "Barnes"
-      },
+      "name": {"title": "Mr","first": "Jesse","last": "Barnes"},
       "location": {
-        "street": {
-          "number": 6492,
-          "name": "Park Road"
-        },
+        "street": {"number": 6492,"name": "Park Road"},
         "city": "Killarney",
         "state": "Kerry",
         "country": "Ireland",
         "postcode": 98886,
-        "coordinates": {
-          "latitude": "-1.3391",
-          "longitude": "-16.2647"
-        },
+        "coordinates": {"latitude": "-1.3391","longitude": "-16.2647"},
         "timezone": {
           "offset": "+3:30",
           "description": "Tehran"
