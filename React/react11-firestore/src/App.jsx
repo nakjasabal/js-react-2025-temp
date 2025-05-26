@@ -6,7 +6,7 @@ import FireConnect from "./firestores/FireConnect";
 import FireCreate from "./firestores/FireCreate";
 import FireRead from "./firestores/FireRead";
 import FireUpdate from "./firestores/FireUpdate";
-import FireDelete from "./firestores/FireDelete";
+// import FireDelete from "./firestores/FireDelete";
 
 function App() {
   return (<>
@@ -19,7 +19,7 @@ function App() {
       <Route path='/update'>
         <Route path=":idx" element={<FireUpdate />} />
       </Route>
-      <Route path='/delete' element={<FireDelete />} />
+      {/* <Route path='/delete' element={<FireDelete />} /> */}
     </Routes>
   </>)
 }

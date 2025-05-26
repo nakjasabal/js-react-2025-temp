@@ -18,8 +18,13 @@ const CommentButton = ({ openWriteModal }) => (
   </button>
 );
 
-const CommentModal = ({newPost, setNewPost, newAuthor, setNewAuthor, 
-  saveComment, isEditMode
+const CommentModal = ({
+  newPost,
+  setNewPost,
+  newAuthor,
+  setNewAuthor,
+  saveComment,
+  isEditMode
 }) => (
   <div className="modal fade" id="commentModal" tabIndex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
     <div className="modal-dialog">

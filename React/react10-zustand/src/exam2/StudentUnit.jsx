@@ -1,6 +1,5 @@
 import useStudentStore from "./useStudentStore";
 
-// 학생 컴포넌트
 const StudentUnit = ({ id, name, isHere }) => {
   const { deleteStudent, toggleAttendance } = useStudentStore();
 
@@ -9,7 +8,7 @@ const StudentUnit = ({ id, name, isHere }) => {
     color: isHere ? 'gray' : 'black', cursor : 'pointer' 
   };
   return (
-    <div>
+    <li>
       <span style={nameStyle} onClick={() => toggleAttendance(id)} >
         {name}
       </span>
@@ -18,7 +17,7 @@ const StudentUnit = ({ id, name, isHere }) => {
             deleteStudent(id);
           }
       }}>삭제</button>
-    </div>
+    </li>
   );
 };
 

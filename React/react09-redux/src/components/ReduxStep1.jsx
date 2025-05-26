@@ -16,5 +16,3 @@ const ReduxStep1 = () => {
 }
 
 export default ReduxStep1;
-
- 

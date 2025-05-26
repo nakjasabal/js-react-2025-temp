@@ -1,6 +1,5 @@
 import { create } from 'zustand';
 
-// Zustand 스토어 생성
 const useStudentStore = create((set) => ({
   students: [{ id: Date.now(), name: '성유겸', isHere: false }],
   count: 1,
@@ -22,4 +21,4 @@ const useStudentStore = create((set) => ({
   ),
 }));
 
-export default useStudentStore
+export default useStudentStore;

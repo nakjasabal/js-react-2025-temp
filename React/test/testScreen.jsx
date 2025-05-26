@@ -42,4 +42,21 @@ const MyLifeCycle = () => {
   </>);
 }
 
+
+import create from 'zustand'
+const Zustand스토어명 = create(
+  (set) => ({
+    상태변수명: 초기값,
+    함수명: (매개변수) => set((state) => ({ 
+      상태변수명 : 변경된값 
+    })),
+  })
+);
+export default StudentUnit;
+
+
+
+
+
 export default Home;
+

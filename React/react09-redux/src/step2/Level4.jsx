@@ -21,7 +21,7 @@ const Level4 = () => {
             <option value="+">+</option>
             <option value="-">-</option>
           </select>
-          <button type="submit">확인</button>
+          <button type="submit">카운트변경</button>
         </form>
       </div>
     </div>

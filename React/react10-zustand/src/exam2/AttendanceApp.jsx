@@ -7,6 +7,7 @@ export default function AttendanceApp() {
   const { students, count, addStudent } = useStudentStore();
 
   return (<>
+    <h2>출결관리App</h2>
     <p>총학생수: {count}</p>
     <input type="text" placeholder="이름을 입력하세요"
       value={name} onChange={(e) => setName(e.target.value)}
@@ -17,9 +18,11 @@ export default function AttendanceApp() {
         setName('');
       }
     }}>추가</button>
-    {students.map((student) => (
-      <StudentUnit key={student.id} {...student} />
-    ))}
+    <ol>
+      {students.map((student) => (
+        <StudentUnit key={student.id} {...student} />
+      ))}
+    </ol>
   </>);
 }
 

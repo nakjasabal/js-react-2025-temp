@@ -1,34 +1,42 @@
 import { useId, useEffect } from "react";
 
-const MyForm = () => {
-  const userId = useId();
-  const commonId = useId();
-  console.log("생성된Id", userId, commonId);
+// Label과 Input을 묶은 컴포넌트
+const InputField = ({ label, name, autoFocus = false }) => {
+  const id = useId();
+
   useEffect(() => {
-    document.getElementById(userId).focus();
-  }, []);
+    if (autoFocus) {
+      document.getElementById(id).focus();
+    }
+  }, [id, autoFocus]);
+
+  return (<>
+    <label htmlFor={id}>{label}</label>
+    <input type="text" id={id} name={name} />
+  </>);
+};
+
+const MyForm = () => {
+  const commonId = useId();
+
   return (
     <div>
-      <label htmlFor={userId}>아이디</label>
-      <input type="text" id={userId} name="id" />
-      <br />
-      <label htmlFor={`${commonId}-name`}>이름</label>
-      <input type="text" id={`${commonId}-name`} name="name" />
-      <br />
-      성별      
+      <InputField label="아이디" name="id" autoFocus /><br />
+      <InputField label="이름" name="name" /><br />
+      성별
       <input type="radio" id={`${commonId}-gender1`} name="gender" />
       <label htmlFor={`${commonId}-gender1`}>남자</label>
       <input type="radio" id={`${commonId}-gender2`} name="gender" />
       <label htmlFor={`${commonId}-gender2`}>여자</label>
     </div>
   );
-}
+};
 
 const UseIdExam = () => {
   return (<>
     <h2>useId() 사용하기</h2>
     <MyForm />
   </>);
-}
+};
 
 export default UseIdExam;

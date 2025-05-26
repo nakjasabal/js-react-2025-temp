@@ -1,47 +1,39 @@
 import { useState, useMemo } from 'react';
 
-const longTimeCalculate = (number) => {
-  console.log('Long time 계산기');
-  for(let i=0 ; i<1234567890 ; i++){
-    number++;
-  }  
-  return number;
-}
+const isPrime = (num) => {
+  console.log('소수판단중..');
+  for(let exCost=1 ; exCost<1234567890 ; exCost++){ 
+    /* 실행 비용이 높은 연산으로 가정 */
+  }
+  if (num <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+};
 
-const shortTimeCalculate = (number) => {
-  console.log('Short time 계산기');
-  return number + 1;
-}
+const UseMemoExample = () => {
+  const [number, setNumber] = useState(0);
+  const [text, setText] = useState('');
 
-const UseMemoExam = () => {
-  const [longTimeNum, setLongTimeNum] = useState(0);
-  const [shortTimeNum, setShortTimeNum] = useState(0);
+  // step1
+  // const checkPrime = isPrime(number);  
 
-  //step1
-  // const longTimeSum = longTimeCalculate(longTimeNum);    
-  // const shortTimeSum = shortTimeCalculate(shortTimeNum);
-
-  //step2
-  const longTimeSum = useMemo(()=>{
-    return longTimeCalculate(longTimeNum);
-  }, [longTimeNum]);
-  const shortTimeSum = useMemo(()=>{
-    return shortTimeCalculate(shortTimeNum);
-  }, [shortTimeNum]);
+  // step2
+  const checkPrime = useMemo(() => isPrime(number), [number]);
 
   return (<>
     <h2>useMemo 사용하기</h2>
-    <h2>Long Time 계산기</h2>
-    <input type="number" value={longTimeNum}
-      onChange={(e)=>setLongTimeNum(parseInt(e.target.value))} 
-    /> 
-    =&gt; {longTimeSum}
-    <h2>Short Time 계산기</h2>
-    <input type="number" value={shortTimeNum}
-      onChange={(e)=>setShortTimeNum(parseInt(e.target.value))} 
-    /> 
-    =&gt; {shortTimeSum}
-  </>);
-}
+    <input type="number" value={number} placeholder="숫자 입력"
+      onChange={(e) => setNumber(parseInt(e.target.value))}
+    />
+    <p>정수 {number} 는 {checkPrime ? '소수 O' : '소수 X'}</p>
 
-export default UseMemoExam;
+    <input type="text" value={text} placeholder="이름 입력(소수 판단과 무관)"
+      onChange={(e) => setText(e.target.value)}
+    />
+    <p>입력한 이름: {text}</p>
+  </>);
+};
+
+export default UseMemoExample;
