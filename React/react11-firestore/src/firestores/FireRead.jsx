@@ -9,20 +9,16 @@ const FireRead = () => {
 
   const getCollection = async () => {
     let trArray = [];
-    //컬렉션 이름으로 지정된 하위 문서를 얻어온다. 
     const querySnapshot = await getDocs(collection(firestore, "members"));
-    //문서의 갯수만큼 반복해서 <tr>태그를 추가한다. 
     querySnapshot.forEach((row) => {
-      console.log(row.id, " => ", row.data());  
       let memberInfo = row.data();
-      console.log("파싱", row.id, memberInfo.pass, memberInfo.name, memberInfo.regdate)
       trArray.push (
         <tr key={row.id}>
-          <td className="cen">{row.id}</td>
-          <td className="cen">{memberInfo.pass}</td>
-          <td className="cen">{memberInfo.name}</td>
-          <td className="cen">{memberInfo.regdate}</td>
-          <td className="cen">
+          <td>{row.id}</td>
+          <td>{memberInfo.pass}</td>
+          <td>{memberInfo.name}</td>
+          <td>{memberInfo.regdate}</td>
+          <td>
             <NavLink to={"/update/"+row.id}>[수정]</NavLink>
             &nbsp;
             <NavLink onClick={async ()=>{
@@ -36,7 +32,6 @@ const FireRead = () => {
         </tr>  
       );
     });
-    //파싱된 데이터를 통해 State를 변경하고 새롭게 렌더링한다. 
     setShowData(trArray);
   }
 
