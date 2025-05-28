@@ -14,9 +14,7 @@ function App() {
       <Route path='/connect' element={<FireConnect />} />
       <Route path='/create' element={<FireCreate />} />
       <Route path='/read' element={<FireRead />} />      
-      <Route path='/update'>
-        <Route path=":userid" element={<FireUpdate />} />
-      </Route>
+      <Route path='/update/:userid' element={<FireUpdate />} />
     </Routes>
   </>)
 }

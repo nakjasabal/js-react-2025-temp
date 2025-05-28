@@ -16,7 +16,7 @@ const FireUpdate = () => {
       id, 
       pass, 
       name, 
-      regdate: new Date().toISOString().slice(0, 10).replace('T', ' '),
+      regdate: new Date().toISOString().slice(0, 10),
     });
     alert("수정 성공");
     navigate('/read');
@@ -51,28 +51,22 @@ const FireUpdate = () => {
       <table border='1'>
       <tbody>
         <tr>
-          <td>컬렉션(테이블) </td>
-          <td><input type="text" name="collection" value="members" 
-            className="form-control" readOnly /></td>
+          <td>컬렉션</td>
+          <td><input type="text" name="collection" value="members" readOnly /></td>
         </tr>
         <tr>
           <td>아이디(변경불가)</td>
-          <td><input type="text" name="id" value={id} className="form-control" 
-            readOnly /></td>
+          <td><input type="text" name="id" value={id} readOnly /></td>
         </tr>
         <tr>
           <td>비밀번호</td>
-          <td><input type="text" name="pass" value={pass} className="form-control" 
-            onChange={(event)=>{
-              setPass(event.target.value);
-            }} /></td>
+          <td><input type="text" name="pass" value={pass}  
+            onChange={(event)=>{setPass(event.target.value)}} /></td>
         </tr>
         <tr>
           <td>이름</td>
-          <td><input type="text" name="name" value={name} className="form-control" 
-            onChange={(event)=>{
-              setName(event.target.value);
-            }} /></td>
+          <td><input type="text" name="name" value={name}  
+            onChange={(event)=>{setName(event.target.value)}} /></td>
         </tr>
       </tbody>
       </table>

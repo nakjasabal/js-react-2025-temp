@@ -37,7 +37,7 @@ const FireCreate = () => {
       <table border='1'>
         <tbody>
           <tr>
-            <td>컬렉션(테이블)</td>
+            <td>컬렉션</td>
             <td><input type="text" name="collection" value="members" readOnly /></td>
           </tr>
           <tr>

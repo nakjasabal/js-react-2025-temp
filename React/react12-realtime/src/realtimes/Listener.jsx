@@ -1,28 +1,16 @@
 import { useEffect, useState } from 'react';
 import { realtime } from '../realtimeConfig';
 import { ref, onValue } from "firebase/database";
-import TopNavi from '../components/TopNavi';
 
 function Listener() {
-  //State 생성(출력 데이터 저장)
   const [fireData, setFireData] = useState([]);  
-  //users 노드를 참조한 객체 
   const dbRef = ref(realtime, 'users');
   useEffect(() => {
-    /**
-    onValue()
-    : 경로의 데이터를 읽고 변경사항을 감지하기 위해 수신 대기한다. 
-    이벤트 발생 시점에 특정 경로에 있는 콘텐츠의 정적 스냅샷을 읽는데 사용된다. 
-    노드의 하위 요소를 포함하여 데이터가 변경될때마다 동작한다. 
-     */
     onValue(dbRef, (snapshot) => {
       let showTr = [];   
-      //데이터 전체를 배열로 가져온다. 
       snapshot.forEach((childSnapshot) => {
-        //각 객체의 Key와 value를 추출한다. 
         const childKey = childSnapshot.key;
         const childData = childSnapshot.val();
-        //console.log(childKey, childData);
         showTr.push(
           <tr>
             <td>{childKey}</td>
@@ -33,13 +21,11 @@ function Listener() {
         );
       });
       console.log('bb', showTr); 
-      //State를 변경하여 새롭게 렌더링 한다. 
       setFireData(showTr);
     });
   }, []);
  
   return (<>
-    <TopNavi></TopNavi>
     <h2>Realtime Database - Listener</h2>
     <table border={1}>
       <thead>
