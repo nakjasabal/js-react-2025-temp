@@ -20,7 +20,6 @@ function Listener() {
           </tr>
         );
       });
-      console.log('bb', showTr); 
       setFireData(showTr);
     });
   }, []);
@@ -29,11 +28,8 @@ function Listener() {
     <h2>Realtime Database - Listener</h2>
     <table border={1}>
       <thead>
-      <tr className='text-center'>
-        <th>아이디</th>
-        <th>이름</th>
-        <th>패스워드</th>
-        <th>고유키</th>
+      <tr>
+        <th>아이디</th><th>이름</th><th>패스워드</th><th>고유키</th>
       </tr>
       </thead>
       <tbody>

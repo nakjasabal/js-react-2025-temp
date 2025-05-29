@@ -51,24 +51,17 @@ function ChatMessage() {
     대화명 : {userId} &nbsp;&nbsp;
     <button id="closeBtn" onClick={() => {window.self.close();}}>
       채팅 종료</button>
-    <div id="chatWindow" ref={chatWindow}>
-      {chatData}
-    </div>
+    <div id="chatWindow" ref={chatWindow}>{chatData}</div>
     <div>
       <form onSubmit={(e)=>{
         e.preventDefault();
         let chatRoom = e.target.chatRoom.value;
         let chatId = e.target.chatId.value;
-        if(chatId===''){
-          alert('대화명을 입력하세요');
-          return;
-        }
         let message = e.target.message.value;
         if(message===''){
           alert('메세지를 입력하세요');
           return;
         }
-        console.log('submit', chatRoom, chatId, message);
         messageWrite(chatRoom, chatId, message);
         e.target.message.value = '';
       }}>

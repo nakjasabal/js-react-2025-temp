@@ -53,7 +53,7 @@ function RealtimeCRUD() {
   function deleteUserData2(userId) {  
     remove(ref(realtime, 'users/' + userId))
     .then(()=>{
-      console.log('삭제성공공');
+      console.log('삭제성공');
     })
     .catch((error)=>{
       console.error('삭제실패', error);

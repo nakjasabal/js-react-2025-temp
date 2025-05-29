@@ -12,7 +12,7 @@ const FireCreate = () => {
       name: p_name,
       regdate: new Date().toISOString().slice(0, 10),
     });    
-    alert('입력 성공')
+    alert('입력 성공');
     navigate('/read');
   }
 
