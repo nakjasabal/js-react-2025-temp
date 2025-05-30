@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import TopNavi from '../components/TopNavi';
 
 const ChatStart = () => {
   const refRoom = useRef();  
@@ -9,6 +10,7 @@ const ChatStart = () => {
   }
   
   return (<>
+    <TopNavi></TopNavi> 
     <h2>Realtime Database - Chatting</h2>
     대화방명 : <input type="text" name="roomId" value="myChating1" ref={refRoom} readOnly /> <br />
     대화명 : <input type="text" name="userId" ref={refId} /> <br />

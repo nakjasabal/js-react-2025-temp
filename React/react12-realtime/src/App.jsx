@@ -1,14 +1,12 @@
 import {Routes, Route} from "react-router-dom";
 
-import TopNavi from './components/TopNavi';
 import RealtimeCRUD from './realtimes/RealtimeCRUD';
 import Listener from './realtimes/Listener';
 import ChatStart from './realtimes/ChatStart';
 import ChatMessage from './realtimes/ChatMessage';
 
 function App() {
-  return (<>
-    <TopNavi></TopNavi> 
+  return (<>    
     <Routes>
       <Route path='/' element={<RealtimeCRUD />} />
       <Route path='/crud' element={<RealtimeCRUD />} />

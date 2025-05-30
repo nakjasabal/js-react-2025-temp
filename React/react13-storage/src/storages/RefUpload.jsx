@@ -1,22 +1,22 @@
-import { storage } from '../storageConfig'
+import { useState } from 'react';
+import { storage } from '../storageConfig';
 import { ref, uploadBytes } from "firebase/storage";
 
-const RefUpload = () => {
-  const storageRef = ref(storage);
-  console.log('루트경로참조', storageRef);
+const RefUpload = () => {  
+  const imageRef = ref(storage, 'images/myFile.jpg');    
+  console.log('경로/파일명', imageRef.fullPath, imageRef.name); 
+  console.log('parent경로', imageRef.parent.fullPath);
+  console.log('root경로', imageRef.root.fullPath);
 
-  const imagesRef = ref(storage, 'images/myFile.jpg');  
-  const imagesParentRef = imagesRef.parent;
-  const rootRef = imagesParentRef.root;  
-  console.log('경로1/파일명', imagesRef.fullPath, imagesRef.name); 
-  console.log('경로2', imagesParentRef.fullPath);
-  console.log('경로3', rootRef.fullPath);
-
+  const [folder, setFolder] = useState('');
+  const storageRef = ref(storage, (folder==='') ? '':'/'+folder);  
   return (<>
-    <h2>Storage - 참조/업로드</h2>
+    <h2>Storage - 업로드</h2>
     <p>파일을 선택하면 즉시 업로드 됩니다.</p>
+    폴더명 : <input type="text" name="folder" value={folder} 
+                onChange={(e)=>setFolder(e.target.value)} /> <br />
     <input type="file" name="myfile" onChange={(e) => { 
-      const uploadRef = ref(imagesParentRef, e.target.files[0].name);     
+      const uploadRef = ref(storageRef, e.target.files[0].name);     
       uploadBytes(uploadRef, e.target.files[0]).then((snapshot) => {
         console.log('업로드성공', snapshot);
       });

@@ -35,8 +35,7 @@ function ChatMessage() {
       snapshot.forEach((childSnapshot) => {
         const childData = childSnapshot.val();
         if(childData.id===userId){
-          showDiv.push(<div className='myMsg' 
-          style={{'textAlign':'right'}}>{childData.message}</div>);
+          showDiv.push(<div style={{'textAlign':'right'}}>{childData.message}</div>);
         }
         else{
           showDiv.push(<div>{childData.message}</div>);

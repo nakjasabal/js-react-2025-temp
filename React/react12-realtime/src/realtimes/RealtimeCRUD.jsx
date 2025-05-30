@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { realtime } from '../realtimeConfig';
 import { getDatabase, ref, get, set } from "firebase/database";
 import { child, push, update, remove } from "firebase/database";
+import TopNavi from '../components/TopNavi';
 
 function RealtimeCRUD() {
   console.log("realtime", realtime);
@@ -67,6 +68,7 @@ function RealtimeCRUD() {
   const pass = "xyz"+adder;
 
   return (<>
+    <TopNavi></TopNavi> 
     <h2>Realtime Database - CRUD</h2>
     <input type="number" value={addNum} onChange={(e)=>{setAddNum(e.target.value);}} />
     <input type='button' value='입력' onClick={()=>{

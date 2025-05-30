@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { realtime } from '../realtimeConfig';
 import { ref, onValue } from "firebase/database";
+import TopNavi from '../components/TopNavi';
 
 function Listener() {
   const [fireData, setFireData] = useState([]);  
@@ -25,6 +26,7 @@ function Listener() {
   }, []);
  
   return (<>
+    <TopNavi></TopNavi> 
     <h2>Realtime Database - Listener</h2>
     <table border={1}>
       <thead>
