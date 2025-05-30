@@ -3,29 +3,30 @@ import { ref, listAll, getDownloadURL, deleteObject } from "firebase/storage";
 import { useState, useEffect } from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 
-const ListDownload = () => {
+const FileLists = () => {
   let params = useParams();
-  let refPath = (params.path === 'undefined') ? '' : params.path;
-  
+  let paramPath = (params.path === 'undefined') ? '' : params.path;
+  const myPathRef = ref(storage, paramPath);  
+
   const [fileLists, setFileLists] = useState([]);  
   const [renderFlag, setRenderFlag] = useState(false);  
-  const rootRef = ref(storage, refPath);  
+
   useEffect(() => {    
     let fileRows = [];
-    listAll(rootRef)
+    listAll(myPathRef)
       .then((res) => {
         res.prefixes.forEach((folderRef) => {
           fileRows.push(
             <tr key={folderRef.name}>
-              <td><NavLink to={`/download/${folderRef.name}`}>{folderRef.name}</NavLink></td>
+              <td><NavLink to={`./${folderRef.name}`}>{folderRef.name}</NavLink></td>
               <td></td>
-              <td colSpan={2}>디렉토리</td>
+              <td colSpan={2}>폴더명</td>
             </tr> 
           ); 
         });
         res.items.forEach((itemRef) => {
-          const deleteRef = ref(rootRef, itemRef.fullPath);
-          getDownloadURL(ref(rootRef, itemRef.name))
+          const deleteRef = ref(myPathRef, itemRef.fullPath);
+          getDownloadURL(ref(myPathRef, itemRef.name))
             .then((url)=>{
               const img = document.getElementById(`img_${itemRef.name}`);
               img.setAttribute('src', url);
@@ -36,7 +37,7 @@ const ListDownload = () => {
             });
           fileRows.push(
             <tr key={itemRef.name}>
-              <td>{rootRef.fullPath}</td>
+              <td>{myPathRef.fullPath}</td>
               <td><img id={`img_${itemRef.name}`} /></td>
               <td>{itemRef.name}</td>
               <td><button type='button' onClick={() => {
@@ -58,10 +59,11 @@ const ListDownload = () => {
       .catch((error) => {
         console.log('파일 목록 출력중 에러발생', error);
       });
-  }, [renderFlag, refPath]);
+  }, [renderFlag, paramPath]);
 
   return (<>
-    <h2>Storage - 목록/다운로드/삭제</h2>
+    <h2>Storage - 목록보기</h2>
+    <p>현재위치 : /{myPathRef.fullPath}</p>
     <table border={1}>
       <tbody>
         <tr>
@@ -73,4 +75,4 @@ const ListDownload = () => {
   </>);
 }
 
-export default ListDownload;
+export default FileLists;

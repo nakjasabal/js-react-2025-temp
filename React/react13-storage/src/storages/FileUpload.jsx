@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { storage } from '../storageConfig';
 import { ref, uploadBytes } from "firebase/storage";
 
-const RefUpload = () => {  
+const FileUpload = () => {  
   const imageRef = ref(storage, 'images/myFile.jpg');    
   console.log('경로/파일명', imageRef.fullPath, imageRef.name); 
   console.log('parent경로', imageRef.parent.fullPath);
@@ -24,4 +24,4 @@ const RefUpload = () => {
   </>);
 }
 
-export default RefUpload;
+export default FileUpload;

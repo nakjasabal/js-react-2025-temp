@@ -4,7 +4,7 @@ const TopNavi = ()=>{
   return (
     <nav>
       <NavLink to="/upload">업로드</NavLink>&nbsp;
-      <NavLink to="/download">목록/다운로드/삭제</NavLink>&nbsp;
+      <NavLink to="/filelists">목록보기</NavLink>&nbsp;
     </nav>
   );
 }
