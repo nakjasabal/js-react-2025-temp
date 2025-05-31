@@ -12,15 +12,15 @@ const isPrime = (num) => {
   return true;
 };
 
-const UseMemoExample = () => {
+const UseMemoExam = () => {
   const [number, setNumber] = useState(0);
   const [text, setText] = useState('');
 
   // step1
-  // const checkPrime = isPrime(number);  
+  const checkPrime = isPrime(number);  
 
   // step2
-  const checkPrime = useMemo(() => isPrime(number), [number]);
+  // const checkPrime = useMemo(() => isPrime(number), [number]);
 
   return (<>
     <h2>useMemo 사용하기</h2>
@@ -36,4 +36,4 @@ const UseMemoExample = () => {
   </>);
 };
 
-export default UseMemoExample;
+export default UseMemoExam;

@@ -1,6 +1,5 @@
 import { useId, useEffect } from "react";
 
-// Label과 Input을 묶은 컴포넌트
 const InputField = ({ label, name, autoFocus = false }) => {
   const id = useId();
 
@@ -8,7 +7,7 @@ const InputField = ({ label, name, autoFocus = false }) => {
     if (autoFocus) {
       document.getElementById(id).focus();
     }
-  }, [id, autoFocus]);
+  }, []);
 
   return (<>
     <label htmlFor={id}>{label}</label>
@@ -18,7 +17,6 @@ const InputField = ({ label, name, autoFocus = false }) => {
 
 const MyForm = () => {
   const commonId = useId();
-
   return (
     <div>
       <InputField label="아이디" name="id" autoFocus /><br />

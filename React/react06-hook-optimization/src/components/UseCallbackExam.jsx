@@ -18,22 +18,22 @@ const UseCallbackExam = () => {
   const colorArr = ['red', 'green', 'blue'];
   
   //step1
-  // const fnBoxStyle = () => {
-  //   return {
-  //     backgroundColor : `${colorArr[boxColor]}`,
-  //     width : `${boxSize}px`, height : `${boxSize}px`,
-  //     textAlign: 'center', lineHeight: `${boxSize}px`
-  //   };
-  // }
-
-  //step2
-  const fnBoxStyle = useCallback(() => {
+  const fnBoxStyle = () => {
     return {
       backgroundColor : `${colorArr[boxColor]}`,
       width : `${boxSize}px`, height : `${boxSize}px`,
       textAlign: 'center', lineHeight: `${boxSize}px`
     };
-  }, [boxSize, boxColor]);
+  }
+
+  //step2
+  // const fnBoxStyle = useCallback(() => {
+  //   return {
+  //     backgroundColor : `${colorArr[boxColor]}`,
+  //     width : `${boxSize}px`, height : `${boxSize}px`,
+  //     textAlign: 'center', lineHeight: `${boxSize}px`
+  //   };
+  // }, [boxSize, boxColor]);
 
   return (<>    
     <h2>useCallback 사용하기</h2>

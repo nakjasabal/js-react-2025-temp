@@ -1,6 +1,5 @@
 const BoardView = () => {
   return (<>
-    {/* 게시판 열람 */}
     <div className="card mb-4">
       <div className="card-body">
         <h5 className="card-title">댓글 작성 구현하기</h5>
