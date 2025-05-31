@@ -5,7 +5,7 @@ function App() {
   const [iWriter, setIWriter] = useState('');
   const [iContents, setIContents] = useState('');
   const [editIdx, setEditIdx] = useState(null);
-  const [nextVal, setNextVal] = useState(2);
+  const [nextVal, setNextVal] = useState(2); 
 
   // 초기 데이터 로드
   useEffect(() => {
